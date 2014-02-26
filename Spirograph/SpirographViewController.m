@@ -42,13 +42,23 @@
 }
 
 - (IBAction)redraw:(id)sender {
-    self.spirographView.l = self.l.value;
+   /* self.spirographView.l = self.l.value;
     self.spirographView.k = self.k.value;
     self.spirographView.stepSize = self.stepSize.text.intValue;
     self.spirographView.numberOfSteps = self.numberOfSteps.text.intValue;
     [self.HarmonigraphView setNeedsDisplay];
     [self.spirographView setNeedsDisplay];
-}
+*/
+        int kIntVal = self.k.value * 10;
+        self.spirographView.k = kIntVal/10.0;
+        int lIntVal = self.l.value * 10;
+        self.spirographView.l = lIntVal/10.0;
+        self.spirographView.numberOfSteps = [self.numberOfSteps.text intValue];
+        self.spirographView.stepSize = [self.stepSize.text floatValue];
+    
+        [self.spirographView setNeedsDisplay];
+    
+    }
 
 
 
